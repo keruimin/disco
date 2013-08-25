@@ -90,6 +90,7 @@ def download(url, method='GET', data=None, offset=(), token=None):
 
 def upload(urls, source, token=None, **kwargs):
     data = FileSource(source).read()
+    print "Uploading", source, "to", urls
     headers = auth_header(token)
     if nocurl:
         return [request('PUT', url, data=data, headers=headers).read()
